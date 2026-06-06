@@ -1,0 +1,25 @@
+[package]
+name = "simple_bot_back"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# Асинхронный рантайм (микросхемы под капотом твоего приложения)
+tokio = { version = "1.38", features = ["full"] }
+
+# Веб-фреймворк от команды Tokio (быстрый, модульный, на базе Tower)
+axum = "0.7"
+
+# Работа с переменными окружения .env (современный форк старого dotenv)
+dotenvy = "0.15"
+
+# Сериализация и десериализация данных (JSON, конфиги и т.д.)
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"                                 # Нужен для работы с JSON-ответами в Axum
+
+# Драйвер для PostgreSQL (раз уж мы подняли базу, он тебе точно понадобится)
+sqlx = { version = "0.7", features = [
+    "runtime-tokio-native-tls",
+    "postgres",
+    "macros",
+] }
